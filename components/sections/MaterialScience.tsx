@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Leaf, Hexagon, Atom, Thermometer, ShieldCheck, ChevronRight } from "lucide-react";
+import { Leaf, Hexagon, Atom, Thermometer, ShieldCheck } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -74,7 +74,7 @@ export function MaterialScience() {
               style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
             />
             {/* large stack image, right side, bleeds past the screen edge */}
-            <div className="absolute inset-y-0 right-[-38px] w-[300px]">
+            <div className="absolute inset-y-0 right-[-52px] w-[300px]">
               <Image
                 src="/images/material-stack.webp"
                 alt="Stacked engineered material samples"
@@ -83,16 +83,14 @@ export function MaterialScience() {
                 className="object-contain object-center"
               />
             </div>
-            {/* compact, vertically-centered spec rows — kept within the image height */}
-            <ul className="absolute inset-y-0 left-0 z-10 flex w-[176px] flex-col justify-center gap-[21px]">
+            {/* compact, vertically-centered spec rows — icon + label only */}
+            <ul className="absolute inset-y-0 left-0 z-10 flex w-[150px] flex-col justify-center gap-[22px]">
               {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
                   <span className="font-display text-[11.5px] font-semibold leading-[1.12] tracking-[0.01em] text-ink">
                     {label}
                   </span>
-                  <span className="h-px flex-1 bg-line-2" />
-                  <ChevronRight className="h-3 w-3 shrink-0 text-ink-3" strokeWidth={1.5} />
                 </li>
               ))}
             </ul>
