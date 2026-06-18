@@ -67,7 +67,7 @@ export function MaterialScience() {
         </Reveal>
 
         <Reveal delay={100} className="mt-6">
-          <div className="relative h-[300px]">
+          <div className="relative h-[300px] max-w-[420px]">
             {/* glow */}
             <div
               className="absolute right-[-6px] top-1/2 h-[330px] w-[350px] -translate-y-1/2 rounded-full"
