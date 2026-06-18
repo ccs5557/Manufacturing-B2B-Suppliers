@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Leaf, Hexagon, Atom, Thermometer, ShieldCheck, ChevronRight } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -23,13 +24,13 @@ const STATS: [string, string][] = [
 ];
 const CERTS = ["ISO 9001", "AS9100D", "NADCAP", "RoHS", "REACH"];
 
-// Mobile spec labels — desktop-style line + dot connectors, no icons / arrows.
+// Mobile spec rows — icon + label + connector line + chevron (matches the artboard).
 const SPECS = [
-  "STRENGTH-TO-WEIGHT RATIO",
-  "COMPOSITES",
-  "ENGINEERED POLYMERS",
-  "HEAT RESISTANCE",
-  "CERTIFICATIONS",
+  { Icon: Leaf, label: "STRENGTH-TO-WEIGHT RATIO" },
+  { Icon: Hexagon, label: "COMPOSITES" },
+  { Icon: Atom, label: "ENGINEERED POLYMERS" },
+  { Icon: Thermometer, label: "HEAT RESISTANCE" },
+  { Icon: ShieldCheck, label: "CERTIFICATIONS" },
 ];
 
 const ROW_TOP = [60, 235, 410];
@@ -57,8 +58,8 @@ export function MaterialScience() {
       <div className="lg:hidden">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-2">Materials Science</p>
-          <h2 className="headline-metal mt-4 font-display text-[clamp(2rem,11vw,2.75rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.02em]">
-            Engineered for Excellence.
+          <h2 className="headline-metal mt-4 whitespace-pre-line font-display text-[clamp(1.85rem,8.6vw,2.3rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.02em]">
+            {"Engineered\nfor Excellence."}
           </h2>
           <p className="mt-4 font-body text-[14px] leading-[1.5] text-ink-2">
             Advanced materials. Proven performance.
@@ -66,31 +67,32 @@ export function MaterialScience() {
         </Reveal>
 
         <Reveal delay={100} className="mt-8">
-          <div className="relative h-[480px]">
+          <div className="relative h-[470px]">
             {/* glow */}
             <div
-              className="absolute right-[-10px] top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full"
+              className="absolute right-[-6px] top-1/2 h-[350px] w-[330px] -translate-y-1/2 rounded-full"
               style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
             />
-            {/* enlarged stack image, flush to the right screen edge (no overflow) */}
-            <div className="absolute inset-y-0 right-[-20px] w-[336px]">
+            {/* large stack image, right side, bleeds to the screen edge */}
+            <div className="absolute inset-y-0 right-[-26px] w-[214px]">
               <Image
                 src="/images/material-stack.webp"
                 alt="Stacked engineered material samples"
                 fill
-                sizes="336px"
+                sizes="240px"
                 className="object-contain object-center"
               />
             </div>
-            {/* left labels, left-aligned, with uniform line + dot connectors */}
-            <ul className="absolute inset-y-0 left-0 z-10 flex flex-col justify-center gap-[34px]">
-              {SPECS.map((label) => (
+            {/* spec rows: icon + label + connector line + chevron (matches artboard) */}
+            <ul className="absolute inset-y-0 left-0 z-10 flex w-[182px] flex-col justify-center gap-[30px]">
+              {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
-                  <span className="w-[120px] font-display text-[12px] font-semibold leading-[1.15] tracking-[0.01em] text-ink">
+                  <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
+                  <span className="font-display text-[11.5px] font-semibold leading-[1.12] tracking-[0.01em] text-ink">
                     {label}
                   </span>
-                  <span className="h-px w-7 shrink-0 bg-line-2" />
-                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-metal" />
+                  <span className="h-px flex-1 bg-line-2" />
+                  <ChevronRight className="h-3 w-3 shrink-0 text-ink-3" strokeWidth={1.5} />
                 </li>
               ))}
             </ul>
