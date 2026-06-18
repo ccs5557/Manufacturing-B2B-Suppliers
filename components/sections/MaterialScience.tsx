@@ -67,24 +67,9 @@ export function MaterialScience() {
         </Reveal>
 
         <Reveal delay={100} className="mt-6">
-          <div className="relative h-[300px] max-w-[420px]">
-            {/* glow */}
-            <div
-              className="absolute right-[-6px] top-1/2 h-[330px] w-[350px] -translate-y-1/2 rounded-full"
-              style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
-            />
-            {/* large stack image, right side, bleeds past the screen edge */}
-            <div className="absolute inset-y-0 right-[-52px] w-[300px]">
-              <Image
-                src="/images/material-stack.webp"
-                alt="Stacked engineered material samples"
-                fill
-                sizes="320px"
-                className="object-contain object-center"
-              />
-            </div>
-            {/* compact, vertically-centered spec rows — icon + label only */}
-            <ul className="absolute inset-y-0 left-0 z-10 flex w-[150px] flex-col justify-center gap-[22px]">
+          <div className="flex items-center gap-3">
+            {/* spec rows — icon + label */}
+            <ul className="flex w-[150px] shrink-0 flex-col gap-[22px]">
               {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
@@ -94,6 +79,20 @@ export function MaterialScience() {
                 </li>
               ))}
             </ul>
+            {/* edge-trimmed stack — tall + narrow, hugs the labels at any width */}
+            <div className="relative -mr-5 h-[380px] flex-1">
+              <div
+                className="absolute left-0 top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full"
+                style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
+              />
+              <Image
+                src="/images/material-stack-tight.webp"
+                alt="Stacked engineered material samples"
+                fill
+                sizes="300px"
+                className="relative object-contain object-left"
+              />
+            </div>
           </div>
         </Reveal>
       </div>
