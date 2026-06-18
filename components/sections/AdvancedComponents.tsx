@@ -34,6 +34,7 @@ function CapabilityCard({
 }: (typeof CAPS)[number]) {
   return (
     <Link
+      prefetch={false}
       href={href}
       className="group relative block h-[188px] overflow-hidden rounded-xl border border-line"
     >

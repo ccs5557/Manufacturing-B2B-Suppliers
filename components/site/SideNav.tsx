@@ -19,6 +19,7 @@ export function SideNav() {
         return (
           <Link
             key={item.label}
+            prefetch={false}
             href={item.href}
             className={`font-mono text-[11px] tracking-[0.2em] transition-colors duration-300 [writing-mode:vertical-rl] rotate-180 hover:text-ink ${
               active ? "text-metal" : "text-[#cfcfcb]"

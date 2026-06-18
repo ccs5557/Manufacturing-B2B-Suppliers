@@ -1,0 +1,11 @@
+{
+  // Static-assets Worker — serves the static export in `out/`.
+  // No OpenNext / no server function: this is a pure SSG site.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "manufacturingb2b",
+  "compatibility_date": "2026-06-18",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

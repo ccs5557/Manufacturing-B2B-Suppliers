@@ -34,7 +34,7 @@ export function Footer() {
       {/* ── Mobile: spacious, editorial ── */}
       <div className="mx-auto flex max-w-[1440px] flex-col gap-9 lg:hidden">
         <div className="flex flex-col gap-3.5">
-          <Link href="/" className="font-display text-[28px] font-bold leading-none tracking-[0.01em] text-ink">
+          <Link prefetch={false} href="/" className="font-display text-[28px] font-bold leading-none tracking-[0.01em] text-ink">
             GEOMETRIX.
           </Link>
           <p className="max-w-[270px] font-body text-[13px] leading-[1.55] text-ink-2">
@@ -62,6 +62,7 @@ export function Footer() {
           {M_LINKS.map((l) => (
             <Link
               key={l.label}
+              prefetch={false}
               href={l.href}
               className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:text-ink"
             >
@@ -83,12 +84,13 @@ export function Footer() {
       {/* ── Desktop ── */}
       <div className="mx-auto hidden max-w-[1440px] flex-row items-center justify-between gap-10 lg:flex">
         <div className="flex flex-wrap items-center gap-x-10 gap-y-3">
-          <Link href="/" className="font-display text-lg font-bold tracking-[0.02em] text-ink">
+          <Link prefetch={false} href="/" className="font-display text-lg font-bold tracking-[0.02em] text-ink">
             GEOMETRIX.
           </Link>
           {LEGAL.map((l) => (
             <Link
               key={l.label}
+              prefetch={false}
               href={l.href}
               className="font-body text-[13px] text-ink-2 transition-colors hover:text-ink"
             >

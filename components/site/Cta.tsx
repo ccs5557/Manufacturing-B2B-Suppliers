@@ -19,6 +19,7 @@ export function Cta({
 }: Props) {
   return (
     <Link
+      prefetch={false}
       href={href}
       className={`group inline-flex items-center gap-3 rounded-[5px] border border-[#8e8e8a] px-7 py-4 font-mono text-xs uppercase tracking-[0.13em] text-[#1a1a18] transition-[filter,transform] duration-300 hover:brightness-[1.05] active:translate-y-px ${className}`}
       style={{

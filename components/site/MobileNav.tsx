@@ -29,6 +29,7 @@ export function MobileNav() {
         }`}
       >
         <Link
+          prefetch={false}
           href="/"
           aria-label="GEOMETRIX home"
           onClick={() => setOpen(false)}
@@ -59,6 +60,7 @@ export function MobileNav() {
           return (
             <Link
               key={item.label}
+              prefetch={false}
               href={item.href}
               onClick={() => setOpen(false)}
               className={`border-b border-line py-4 font-display text-3xl font-bold tracking-[-0.01em] transition-colors ${

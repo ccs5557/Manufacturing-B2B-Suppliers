@@ -44,3 +44,9 @@ next-env.d.ts
 # local dev/design artifacts
 .design-ref/
 *.log
+
+# static export + cloudflare build artifacts
+/out/
+.open-next/
+.wrangler/
+.dev.vars

@@ -4,6 +4,7 @@ import Link from "next/link";
 export function Brand() {
   return (
     <Link
+      prefetch={false}
       href="/"
       aria-label="GEOMETRIX home"
       className="fixed left-10 top-9 z-50 hidden font-display text-2xl font-bold tracking-[0.02em] text-ink lg:block"
