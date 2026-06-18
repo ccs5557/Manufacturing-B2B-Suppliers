@@ -84,7 +84,7 @@ export function MaterialScience() {
               />
             </div>
             {/* compact, vertically-centered spec rows — kept within the image height */}
-            <ul className="absolute inset-y-0 left-0 z-10 flex w-[176px] flex-col justify-center gap-[16px]">
+            <ul className="absolute inset-y-0 left-0 z-10 flex w-[176px] flex-col justify-center gap-[21px]">
               {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
