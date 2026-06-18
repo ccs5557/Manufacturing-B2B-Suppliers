@@ -66,11 +66,11 @@ export function MaterialScience() {
           </p>
         </Reveal>
 
-        <Reveal delay={100} className="mt-5">
-          <div className="relative h-[420px]">
+        <Reveal delay={100} className="mt-6">
+          <div className="relative h-[312px]">
             {/* glow */}
             <div
-              className="absolute right-[-10px] top-1/2 h-[380px] w-[360px] -translate-y-1/2 rounded-full"
+              className="absolute right-[-10px] top-1/2 h-[320px] w-[340px] -translate-y-1/2 rounded-full"
               style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
             />
             {/* large stack image, right side, bleeds past the screen edge */}
