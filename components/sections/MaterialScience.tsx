@@ -72,8 +72,8 @@ export function MaterialScience() {
               className="absolute right-[-10px] top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full"
               style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
             />
-            {/* enlarged stack image, pushed further right to decompress on small screens */}
-            <div className="absolute inset-y-0 right-[-58px] w-[336px]">
+            {/* enlarged stack image, flush to the right screen edge (no overflow) */}
+            <div className="absolute inset-y-0 right-[-20px] w-[336px]">
               <Image
                 src="/images/material-stack.webp"
                 alt="Stacked engineered material samples"

@@ -31,36 +31,50 @@ function IsoChip() {
 export function Footer() {
   return (
     <footer className="border-t border-line bg-surface px-5 pb-12 pt-10 lg:px-14 lg:pb-9 lg:pt-9">
-      {/* ── Mobile: minimal, structured ── */}
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-7 lg:hidden">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="font-display text-xl font-bold tracking-[0.02em] text-ink">
+      {/* ── Mobile: spacious, editorial ── */}
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-9 lg:hidden">
+        <div className="flex flex-col gap-3.5">
+          <Link href="/" className="font-display text-[28px] font-bold leading-none tracking-[0.01em] text-ink">
             GEOMETRIX.
           </Link>
-          <IsoChip />
+          <p className="max-w-[270px] font-body text-[13px] leading-[1.55] text-ink-2">
+            Premium B2B components and high-performance materials. Built in
+            Sitiawan, Perak.
+          </p>
         </div>
 
-        <div className="h-px w-full bg-line" />
+        <div className="flex flex-col gap-2.5">
+          <a
+            href="mailto:supply@geometrix.io"
+            className="font-mono text-[12px] tracking-[0.03em] text-ink transition-colors hover:text-metal"
+          >
+            supply@geometrix.io
+          </a>
+          <a
+            href="tel:+6056910000"
+            className="font-mono text-[12px] tracking-[0.03em] text-ink-2 transition-colors hover:text-ink"
+          >
+            +60 5 691 0000
+          </a>
+        </div>
 
-        <nav className="grid grid-cols-2 gap-x-4 gap-y-3.5">
+        <nav className="flex flex-wrap gap-x-5 gap-y-2.5 border-t border-line pt-7">
           {M_LINKS.map((l) => (
             <Link
               key={l.label}
               href={l.href}
-              className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:text-ink"
+              className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:text-ink"
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="h-px w-full bg-line" />
-
         <div className="flex flex-col gap-1.5">
-          <span className="font-mono text-[10px] tracking-[0.06em] text-ink-3">
+          <span className="font-mono text-[9.5px] tracking-[0.08em] text-ink-3">
             © 2026 GEOMETRIX GLOBAL INNOVATION
           </span>
-          <span className="font-mono text-[10px] tracking-[0.06em] text-ink-3">
+          <span className="font-mono text-[9.5px] tracking-[0.08em] text-ink-3">
             SITIAWAN, PERAK · 4°13′N 100°41′E
           </span>
         </div>
