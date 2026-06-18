@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────────────────────
+   GEOMETRIX design tokens — single source of truth (see DESIGN.md)
+   Extracted verbatim from Manufacturing.pen
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* Surfaces (dark, near-black industrial) */
+  --color-surface: #0a0a0b;   /* bg-base */
+  --color-surface-2: #141416; /* bg-elevated */
+  --color-panel: #1a1a1d;     /* bg-panel */
+
+  /* Ink */
+  --color-ink: #f5f5f4;       /* text-primary */
+  --color-ink-2: #9a9a98;     /* text-secondary */
+  --color-ink-3: #5e5e60;     /* text-tertiary */
+
+  /* Accents */
+  --color-accent: #e8e6e1;    /* warm off-white CTA / fills */
+  --color-metal: #c9a57a;     /* warm metal — eyebrows, ticks, dots */
+
+  /* Hairlines */
+  --color-line: #2a2a2e;      /* stroke-subtle */
+  --color-line-2: #3a3a40;    /* stroke-strong */
+
+  /* Content rails */
+  --spacing-gutter: 56px;     /* desktop section horizontal padding */
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: dark;
+}
+
+/* Remove tap highlight + focus outline on every interactive surface */
+*,
+*::before,
+*::after {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    outline: none;
+  }
+
+  ::selection {
+    background: var(--color-metal);
+    color: #0a0a0b;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Mono eyebrow label — reused on every module */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-metal);
+  }
+
+  /* Vertical (rotated) desktop side-nav text */
+  .vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* Brushed-steel sheen for big display headlines.
+     Falls back to solid ink where background-clip:text is unsupported. */
+  .headline-metal {
+    color: var(--color-ink);
+  }
+
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    .headline-metal {
+      background-image: linear-gradient(
+        174deg,
+        #fdfdfc 0%,
+        #f1f0ed 28%,
+        #c2c0ba 56%,
+        #93918b 74%,
+        #cfcdc7 90%,
+        #efeeea 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  }
+
+  /* Page-load reveal — stagger via inline animation-delay */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: reveal 0.9s var(--ease-out-expo) both;
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Scroll-driven reveal — visible by default; animates only where supported */
+  .reveal-scroll {
+    opacity: 1;
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal-scroll {
+        opacity: 0;
+        transform: translateY(26px);
+        animation: reveal 1.1s var(--ease-out-expo) both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 28%;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
