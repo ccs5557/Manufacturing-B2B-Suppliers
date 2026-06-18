@@ -72,24 +72,24 @@ export function MaterialScience() {
               className="absolute right-[-10px] top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full"
               style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
             />
-            {/* enlarged stack image, right-biased, bleeds to screen edge */}
-            <div className="absolute inset-y-0 right-[-38px] w-[336px]">
+            {/* enlarged stack image, pushed further right to decompress on small screens */}
+            <div className="absolute inset-y-0 right-[-58px] w-[336px]">
               <Image
                 src="/images/material-stack.webp"
                 alt="Stacked engineered material samples"
                 fill
-                sizes="290px"
+                sizes="336px"
                 className="object-contain object-center"
               />
             </div>
-            {/* left labels with line + dot connectors (desktop style) */}
-            <ul className="absolute inset-y-0 left-0 z-10 flex w-[156px] flex-col justify-center gap-[34px]">
+            {/* left labels, left-aligned, with uniform line + dot connectors */}
+            <ul className="absolute inset-y-0 left-0 z-10 flex flex-col justify-center gap-[34px]">
               {SPECS.map((label) => (
                 <li key={label} className="flex items-center gap-2.5">
-                  <span className="flex-1 text-right font-display text-[12px] font-semibold leading-[1.15] tracking-[0.01em] text-ink">
+                  <span className="w-[120px] font-display text-[12px] font-semibold leading-[1.15] tracking-[0.01em] text-ink">
                     {label}
                   </span>
-                  <span className="h-px w-6 shrink-0 bg-line-2" />
+                  <span className="h-px w-7 shrink-0 bg-line-2" />
                   <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-metal" />
                 </li>
               ))}
