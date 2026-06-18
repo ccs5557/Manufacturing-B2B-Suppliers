@@ -69,7 +69,7 @@ export function MaterialScience() {
         <Reveal delay={100} className="mt-6">
           <div className="flex items-center gap-3">
             {/* spec rows — icon + label */}
-            <ul className="flex w-[150px] shrink-0 flex-col gap-[22px]">
+            <ul className="flex w-[150px] shrink-0 flex-col gap-[30px]">
               {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
