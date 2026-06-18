@@ -67,24 +67,24 @@ export function MaterialScience() {
         </Reveal>
 
         <Reveal delay={100} className="mt-6">
-          <div className="relative h-[312px]">
+          <div className="relative h-[300px]">
             {/* glow */}
             <div
-              className="absolute right-[-10px] top-1/2 h-[320px] w-[340px] -translate-y-1/2 rounded-full"
+              className="absolute right-[-6px] top-1/2 h-[330px] w-[350px] -translate-y-1/2 rounded-full"
               style={{ background: "radial-gradient(circle, rgba(69,69,79,0.45) 0%, rgba(10,10,11,0) 70%)" }}
             />
             {/* large stack image, right side, bleeds past the screen edge */}
-            <div className="absolute inset-y-0 right-[-34px] w-[280px]">
+            <div className="absolute inset-y-0 right-[-38px] w-[300px]">
               <Image
                 src="/images/material-stack.webp"
                 alt="Stacked engineered material samples"
                 fill
-                sizes="300px"
+                sizes="320px"
                 className="object-contain object-center"
               />
             </div>
-            {/* spec rows spread to span the height and align with the stack layers */}
-            <ul className="absolute inset-y-0 left-0 z-10 flex w-[176px] flex-col justify-between py-2">
+            {/* compact, vertically-centered spec rows — kept within the image height */}
+            <ul className="absolute inset-y-0 left-0 z-10 flex w-[176px] flex-col justify-center gap-[16px]">
               {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
