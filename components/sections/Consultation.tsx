@@ -96,19 +96,21 @@ export function Consultation() {
             <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-black/25" />
             <div className="pointer-events-none absolute inset-3 rounded-lg border border-white/10" />
 
+            {/* Raised rail — runs from the left and continues behind the form plate */}
+            <div
+              className="absolute left-10 right-[40%] top-1/2 h-[30px] -translate-y-1/2 rounded-[4px] border border-[#1a1a18]"
+              style={{ background: "linear-gradient(180deg,#2a2a28 0%,#4a4a47 55%,#6e6e6a 100%)", boxShadow: "0 5px 9px rgba(0,0,0,0.45), 0 -2px 2px rgba(255,255,255,0.25)" }}
+            />
+
             <div className="relative grid gap-8 p-7 lg:grid-cols-[1fr_minmax(0,420px)] lg:items-stretch">
-              <div className="flex h-full flex-col justify-between py-1">
+              <div className="relative z-10 flex h-full flex-col justify-between py-1">
                 <span className="font-mono text-[10px] tracking-[0.22em] text-[#2b2b27]">GEOMETRIX // SUPPLY DESK</span>
-                <div
-                  className="h-[28px] w-[80%] rounded-[4px] border border-[#1a1a18]"
-                  style={{ background: "linear-gradient(180deg,#2a2a28 0%,#4a4a47 55%,#6e6e6a 100%)", boxShadow: "0 5px 9px rgba(0,0,0,0.45), 0 -2px 2px rgba(255,255,255,0.25)" }}
-                />
                 <span className="font-mono text-[10px] tracking-[0.18em] text-[#2b2b27]">ISO 9001 · AS9100D · NADCAP</span>
               </div>
 
               <form
                 onSubmit={submit}
-                className="relative flex flex-col gap-3.5 overflow-hidden rounded-[10px] border border-[#8e8e8a] p-5"
+                className="relative z-10 flex flex-col gap-3.5 overflow-hidden rounded-[10px] border border-[#8e8e8a] p-5"
                 style={{ boxShadow: "0 12px 24px -6px rgba(0,0,0,0.6), 0 2px 0 rgba(255,255,255,0.4)" }}
               >
                 <Image src="/images/form-plate.webp" alt="" fill sizes="420px" className="object-cover" />
