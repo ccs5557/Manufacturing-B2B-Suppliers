@@ -16,7 +16,7 @@ const ABSTRACT = [
 
 function PhotoTile({ src, label, index, className = "" }: { src: string; label: string; index: string; className?: string }) {
   return (
-    <figure className={`relative overflow-hidden rounded-[4px] border border-line ${className}`}>
+    <figure data-animate="" className={`relative overflow-hidden rounded-[4px] border border-line ${className}`}>
       <Image src={src} alt={label} fill sizes="33vw" className="object-cover" />
       <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-surface/90 to-transparent px-[18px] pb-4 pt-7">
         <span className="font-mono text-[11px] tracking-[0.14em] text-ink">{label}</span>
@@ -28,7 +28,7 @@ function PhotoTile({ src, label, index, className = "" }: { src: string; label: 
 
 function AbstractTile({ src, label, sub, className = "" }: { src: string; label: string; sub: string; className?: string }) {
   return (
-    <figure className={`relative overflow-hidden rounded-[4px] border border-line ${className}`}>
+    <figure data-animate="" className={`relative overflow-hidden rounded-[4px] border border-line ${className}`}>
       <Image src={src} alt={label} fill sizes="50vw" className="object-cover" />
       <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-1 bg-gradient-to-t from-surface to-transparent px-[22px] pb-5 pt-9">
         <span className="font-mono text-[11px] tracking-[0.14em] text-ink">{label}</span>
@@ -47,7 +47,7 @@ const M_HALF = [
 
 function MobileProcessCard({ src, title, className = "" }: { src: string; title: string; className?: string }) {
   return (
-    <figure className={`relative flex flex-col justify-end overflow-hidden rounded-xl border border-line ${className}`}>
+    <figure data-animate="" className={`relative flex flex-col justify-end overflow-hidden rounded-xl border border-line ${className}`}>
       <Image src={src} alt={title} fill sizes="(max-width:640px) 50vw, 100vw" className="object-cover" />
       <figcaption className="relative bg-gradient-to-t from-surface via-surface/70 to-transparent px-3.5 pb-3.5 pt-10">
         <span className="font-display text-[15px] font-semibold leading-[1.12] tracking-[-0.01em] text-ink">
@@ -72,14 +72,14 @@ export function ProductionOptimized() {
             Production &amp; Process
           </p>
         </Reveal>
-        <Reveal delay={80} className="mt-6 flex flex-col gap-3.5">
+        <div className="mt-6 flex flex-col gap-3.5">
           <MobileProcessCard {...M_BIG} className="h-[200px]" />
           <div className="grid grid-cols-2 gap-3.5">
             {M_HALF.map((c) => (
               <MobileProcessCard key={c.title} {...c} className="h-[150px]" />
             ))}
           </div>
-        </Reveal>
+        </div>
       </div>
 
       {/* ── Desktop ── */}
@@ -112,21 +112,21 @@ export function ProductionOptimized() {
           </div>
         </Reveal>
 
-        <Reveal delay={120} className="mt-14">
+        <div className="mt-14">
           <div className="grid grid-cols-3 gap-4">
             {TILES.map((t) => (
               <PhotoTile key={t.index} {...t} className="h-[360px]" />
             ))}
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal delay={200} className="mt-4">
+        <div className="mt-4">
           <div className="grid grid-cols-2 gap-4">
             {ABSTRACT.map((a) => (
               <AbstractTile key={a.label} {...a} className="h-[300px]" />
             ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </Section>
   );

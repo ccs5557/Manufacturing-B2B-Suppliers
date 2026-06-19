@@ -22,12 +22,6 @@ export function MotionProvider() {
 
   useGSAP(
     () => {
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduce) {
-        document.documentElement.classList.remove("motion");
-        return;
-      }
-
       try {
         const ease = "power3.out";
 
@@ -49,9 +43,9 @@ export function MotionProvider() {
             gsap.to(els, {
               opacity: 1,
               y: 0,
-              duration: 0.9,
+              duration: 0.95,
               ease,
-              stagger: 0.09,
+              stagger: 0.12,
               overwrite: true,
             }),
         });

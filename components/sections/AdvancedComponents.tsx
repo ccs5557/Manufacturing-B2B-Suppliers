@@ -36,6 +36,7 @@ function CapabilityCard({
     <Link
       prefetch={false}
       href={href}
+      data-animate=""
       className="group relative block h-[188px] overflow-hidden rounded-xl border border-line"
     >
       <Image src={src} alt={title} fill sizes="100vw" className="object-cover" />
@@ -60,7 +61,7 @@ function CapabilityCard({
 /* ── Desktop bento tiles ── */
 function Tile({ src, className = "" }: { src: string; className?: string }) {
   return (
-    <div className={`relative overflow-hidden rounded-md border border-line ${className}`}>
+    <div data-animate="" className={`relative overflow-hidden rounded-md border border-line ${className}`}>
       <Image src={src} alt="" fill sizes="50vw" className="object-cover" />
     </div>
   );
@@ -68,7 +69,7 @@ function Tile({ src, className = "" }: { src: string; className?: string }) {
 
 function SpecPanel() {
   return (
-    <div className="flex h-full flex-col justify-between rounded-md border border-line bg-panel p-7">
+    <div data-animate="" className="flex h-full flex-col justify-between rounded-md border border-line bg-panel p-7">
       <span className="font-mono text-xs tracking-[0.08em] text-ink-3">01 / CARBON</span>
       <div className="flex flex-col gap-2.5">
         <h3 className="font-display text-2xl font-semibold leading-[1.1] text-ink">
@@ -90,11 +91,11 @@ export function AdvancedComponents() {
         <Reveal>
           <p className="eyebrow">Advanced Capabilities</p>
         </Reveal>
-        <Reveal delay={80} className="mt-6 flex flex-col gap-4">
+        <div className="mt-6 flex flex-col gap-4">
           {CAPS.map((c) => (
             <CapabilityCard key={c.title} {...c} />
           ))}
-        </Reveal>
+        </div>
       </div>
 
       {/* ── Desktop: full module + bento ── */}
@@ -114,7 +115,7 @@ export function AdvancedComponents() {
           </div>
         </Reveal>
 
-        <Reveal delay={120} className="mt-12">
+        <div className="mt-12">
           <div className="grid h-[600px] grid-cols-[minmax(0,540px)_1fr] gap-5">
             <Tile src="/images/valve.webp" className="h-full" />
             <div className="grid grid-rows-[290px_minmax(0,1fr)] gap-5">
@@ -125,7 +126,7 @@ export function AdvancedComponents() {
               <Tile src="/images/fiber.webp" className="h-full" />
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </Section>
   );
