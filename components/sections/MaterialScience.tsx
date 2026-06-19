@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Leaf, Hexagon, Atom, Thermometer, ShieldCheck } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
+import { TypeText } from "@/components/site/TypeText";
 
 type Material = { n: string; name: string; spec: string };
 
@@ -41,7 +42,9 @@ function Callout({ m, side, top }: { m: Material; side: "left" | "right"; top: n
     <div className={`absolute w-[230px] ${isLeft ? "left-0 text-right" : "right-0 text-left"}`} style={{ top }}>
       <div className={`flex items-center gap-2.5 ${isLeft ? "justify-end" : "justify-start"}`}>
         {!isLeft && <span className="font-mono text-[11px] text-metal">{m.n}</span>}
-        <span className="font-display text-lg font-semibold tracking-[-0.01em] text-ink">{m.name}</span>
+        <TypeText className="whitespace-nowrap font-display text-lg font-semibold tracking-[-0.01em] text-ink">
+          {m.name}
+        </TypeText>
         {isLeft && <span className="font-mono text-[11px] text-metal">{m.n}</span>}
       </div>
       <span className="mt-1.5 block font-mono text-[10px] tracking-[0.1em] text-ink-3">{m.spec}</span>
@@ -73,9 +76,9 @@ export function MaterialScience() {
               {SPECS.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon className="h-[19px] w-[19px] shrink-0 text-ink-2" strokeWidth={1.4} />
-                  <span className="font-display text-[11.5px] font-semibold leading-[1.12] tracking-[0.01em] text-ink">
+                  <TypeText className="font-display text-[11.5px] font-semibold leading-[1.12] tracking-[0.01em] text-ink">
                     {label}
-                  </span>
+                  </TypeText>
                 </li>
               ))}
             </ul>

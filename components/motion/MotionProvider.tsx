@@ -15,6 +15,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  *   data-animate         fade/slide reveal on scroll-into-view (batched)
  *   data-shine           brushed-steel light sweep across a headline
  *   data-count           count-up number (+ data-prefix/-suffix/-decimals)
+ *   data-type            typewriter label (types out char-by-char on enter)
  *   data-parallax="N"    subtle scrub parallax (N px of travel)
  */
 export function MotionProvider() {
@@ -50,21 +51,24 @@ export function MotionProvider() {
             }),
         });
 
-        // 3) Metallic shine sweep
+        // 3) Metallic shine sweep — looping glint that crosses each headline,
+        // pauses, then repeats. Tightened travel so it starts crossing quickly
+        // (no long dead lead-in) and a clearly visible, even speed.
         gsap.utils.toArray<HTMLElement>("[data-shine]").forEach((el) => {
           ScrollTrigger.create({
             trigger: el,
-            start: "top 82%",
+            start: "top 90%",
             once: true,
             onEnter: () =>
               gsap.fromTo(
                 el,
-                { backgroundPosition: "135% 0, 0 0" },
+                { backgroundPosition: "128% 0, 0 0" },
                 {
-                  backgroundPosition: "-55% 0, 0 0",
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  delay: 0.2,
+                  backgroundPosition: "-42% 0, 0 0",
+                  duration: 2.8,
+                  ease: "none",
+                  repeat: -1,
+                  repeatDelay: 2.4,
                 },
               ),
           });
@@ -96,7 +100,45 @@ export function MotionProvider() {
           });
         });
 
-        // 5) Subtle parallax
+        // 5) Typewriter labels — type out character-by-character. [data-type]
+        // marks the in-flow wrapper (a reliable scroll trigger); its
+        // [data-type-live] child is parked empty and typed over an invisible
+        // ghost — no flash, no layout shift. Batched so a cluster of labels
+        // staggers together. Full text stays in the DOM for no-JS.
+        const typeLive = (live: HTMLElement) => {
+          const full = live.dataset.full ?? "";
+          const s = { n: 0 };
+          live.classList.add("typing");
+          gsap.to(s, {
+            n: full.length,
+            duration: Math.max(0.5, full.length * 0.05),
+            ease: "none",
+            onUpdate: () => {
+              live.textContent = full.slice(0, Math.round(s.n));
+            },
+            onComplete: () => {
+              live.textContent = full;
+              gsap.delayedCall(1.6, () => live.classList.remove("typing"));
+            },
+          });
+        };
+        gsap.utils.toArray<HTMLElement>("[data-type]").forEach((wrap) => {
+          const live = wrap.querySelector<HTMLElement>("[data-type-live]");
+          if (!live) return;
+          live.dataset.full = live.textContent ?? "";
+          live.textContent = "";
+        });
+        ScrollTrigger.batch("[data-type]", {
+          start: "top 90%",
+          once: true,
+          onEnter: (wraps) =>
+            wraps.forEach((wrap, i) => {
+              const live = wrap.querySelector<HTMLElement>("[data-type-live]");
+              if (live) gsap.delayedCall(i * 0.1, () => typeLive(live));
+            }),
+        });
+
+        // 6) Subtle parallax
         gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
           const d = parseFloat(el.dataset.parallax || "16");
           gsap.fromTo(

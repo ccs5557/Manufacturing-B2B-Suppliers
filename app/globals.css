@@ -98,6 +98,12 @@
     text-orientation: mixed;
   }
 
+  /* Giant outline wordmark — engineering-blueprint stroke, transparent fill */
+  .wordmark-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(245, 245, 244, 0.15);
+  }
+
   /* Brushed-steel sheen for big display headlines.
      Falls back to solid ink where background-clip:text is unsupported. */
   .headline-metal {
@@ -146,6 +152,23 @@
   .motion [data-hero] {
     opacity: 0;
     will-change: transform, opacity;
+  }
+
+  /* Typewriter caret — only present while a [data-type] label is typing */
+  .typing::after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 1.05em;
+    margin-left: 2px;
+    background: currentColor;
+    vertical-align: -0.14em;
+    animation: caret-blink 0.85s steps(1, end) infinite;
+  }
+  @keyframes caret-blink {
+    50% {
+      opacity: 0;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
