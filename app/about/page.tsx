@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     "GEOMETRIX is a premium B2B precision-manufacturing supplier in Sitiawan, Perak — engineered components and high-performance materials, trusted worldwide.",
 };
 
-const STATS: [string, string][] = [
-  ["18+", "YEARS IN OPERATION"],
-  ["40+", "COUNTRIES SHIPPED"],
-  ["±2µm", "TYPICAL TOLERANCE"],
-  ["100%", "PARTS INSPECTED"],
+const STATS = [
+  { v: "18+", k: "YEARS IN OPERATION", n: 18, prefix: "", suffix: "+", decimals: 0 },
+  { v: "40+", k: "COUNTRIES SHIPPED", n: 40, prefix: "", suffix: "+", decimals: 0 },
+  { v: "±2µm", k: "TYPICAL TOLERANCE", n: 2, prefix: "±", suffix: "µm", decimals: 0 },
+  { v: "100%", k: "PARTS INSPECTED", n: 100, prefix: "", suffix: "%", decimals: 0 },
 ];
 const CERTS = ["ISO 9001", "AS9100D", "NADCAP", "RoHS", "REACH"];
 
@@ -53,10 +53,18 @@ export default function AboutPage() {
 
       <Section className="border-t border-line bg-surface" pad="tight">
         <Reveal className="grid grid-cols-2 gap-y-10 sm:grid-cols-4 sm:divide-x sm:divide-line">
-          {STATS.map(([v, k]) => (
-            <div key={k} className="flex flex-col items-center gap-2 px-4 text-center">
-              <span className="font-display text-[clamp(1.9rem,4vw,2.75rem)] font-bold tracking-[-0.04em] text-ink">{v}</span>
-              <span className="font-mono text-[10px] tracking-[0.15em] text-ink-2">{k}</span>
+          {STATS.map((s) => (
+            <div key={s.k} className="flex flex-col items-center gap-2 px-4 text-center">
+              <span
+                className="font-display text-[clamp(1.9rem,4vw,2.75rem)] font-bold tracking-[-0.04em] text-ink"
+                data-count={s.n}
+                data-prefix={s.prefix}
+                data-suffix={s.suffix}
+                data-decimals={s.decimals}
+              >
+                {s.v}
+              </span>
+              <span className="font-mono text-[10px] tracking-[0.15em] text-ink-2">{s.k}</span>
             </div>
           ))}
         </Reveal>

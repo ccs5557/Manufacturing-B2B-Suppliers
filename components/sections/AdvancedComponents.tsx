@@ -103,7 +103,7 @@ export function AdvancedComponents() {
           <div className="flex items-end justify-between">
             <div>
               <p className="eyebrow">Module 01</p>
-              <h2 className="headline-metal mt-4 font-display text-[clamp(2rem,6vw,4rem)] font-bold uppercase leading-none tracking-[-0.02em]">
+              <h2 data-shine="" className="headline-metal mt-4 font-display text-[clamp(2rem,6vw,4rem)] font-bold uppercase leading-none tracking-[-0.02em]">
                 Advanced Components.
               </h2>
             </div>

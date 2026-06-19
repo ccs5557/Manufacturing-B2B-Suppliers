@@ -5,6 +5,11 @@ import { Brand } from "@/components/site/Brand";
 import { SideNav } from "@/components/site/SideNav";
 import { MobileNav } from "@/components/site/MobileNav";
 import { Footer } from "@/components/site/Footer";
+import { MotionProvider } from "@/components/motion/MotionProvider";
+
+// Synchronous, before-paint: enable motion only when JS is on and the user
+// hasn't asked for reduced motion. Keeps content visible by default.
+const MOTION_GATE = `try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('motion')}}catch(e){}`;
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -57,9 +62,12 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={`${archivo.variable} ${inter.variable} ${geistMono.variable} h-full`}
     >
       <body className="min-h-full bg-surface text-ink">
+        <script dangerouslySetInnerHTML={{ __html: MOTION_GATE }} />
+        <MotionProvider />
         <MobileNav />
         <Brand />
         <SideNav />

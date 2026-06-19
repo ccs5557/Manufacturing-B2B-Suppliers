@@ -27,7 +27,7 @@ export function Consultation() {
       {/* ── Mobile ── */}
       <div className="lg:hidden">
         <Reveal>
-          <h2 className="headline-metal font-display text-[clamp(1.9rem,9vw,2.5rem)] font-bold uppercase leading-[1.04] tracking-[-0.02em]">
+          <h2 data-shine="" className="headline-metal font-display text-[clamp(1.9rem,9vw,2.5rem)] font-bold uppercase leading-[1.04] tracking-[-0.02em]">
             Ready to Engineer What&apos;s Next?
           </h2>
           <p className="mt-4 font-body text-[13.5px] leading-[1.45] text-ink-2">
@@ -78,7 +78,7 @@ export function Consultation() {
       <div className="hidden lg:block">
         <Reveal className="flex flex-col items-center text-center">
           <span className="font-mono text-xs uppercase tracking-[0.16em] text-metal">Get in touch</span>
-          <h2 className="headline-metal mt-5 max-w-[840px] font-display text-[clamp(1.9rem,5vw,3.25rem)] font-bold uppercase leading-[1.02] tracking-[-0.02em]">
+          <h2 data-shine="" className="headline-metal mt-5 max-w-[840px] font-display text-[clamp(1.9rem,5vw,3.25rem)] font-bold uppercase leading-[1.02] tracking-[-0.02em]">
             Let&apos;s Engineer Your Next Breakthrough.
           </h2>
           <p className="mt-5 max-w-[560px] font-body text-base leading-[1.55] text-ink-2">

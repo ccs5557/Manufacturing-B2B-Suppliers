@@ -16,11 +16,11 @@ const RIGHT: Material[] = [
   { n: "06", name: "Polymer Core", spec: "PEEK / PEI" },
 ];
 
-const STATS: [string, string][] = [
-  [">500°C", "THERMAL LIMIT"],
-  ["8.4×", "STRENGTH / WEIGHT"],
-  ["±2µm", "TOLERANCE"],
-  ["100%", "INSPECTED"],
+const STATS = [
+  { v: ">500°C", k: "THERMAL LIMIT", n: 500, prefix: ">", suffix: "°C", decimals: 0 },
+  { v: "8.4×", k: "STRENGTH / WEIGHT", n: 8.4, prefix: "", suffix: "×", decimals: 1 },
+  { v: "±2µm", k: "TOLERANCE", n: 2, prefix: "±", suffix: "µm", decimals: 0 },
+  { v: "100%", k: "INSPECTED", n: 100, prefix: "", suffix: "%", decimals: 0 },
 ];
 const CERTS = ["ISO 9001", "AS9100D", "NADCAP", "RoHS", "REACH"];
 
@@ -58,7 +58,7 @@ export function MaterialScience() {
       <div className="lg:hidden">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-2">Materials Science</p>
-          <h2 className="headline-metal mt-4 whitespace-pre-line font-display text-[clamp(1.85rem,8.6vw,2.3rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.02em]">
+          <h2 data-shine="" className="headline-metal mt-4 whitespace-pre-line font-display text-[clamp(1.85rem,8.6vw,2.3rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.02em]">
             {"Engineered\nfor Excellence."}
           </h2>
           <p className="mt-4 font-body text-[14px] leading-[1.5] text-ink-2">
@@ -104,7 +104,7 @@ export function MaterialScience() {
             <span className="h-px w-7 bg-metal" />
             <span className="font-mono text-xs uppercase tracking-[0.16em] text-metal">Module 03 / Materials</span>
           </div>
-          <h2 className="headline-metal mt-5 font-display text-[clamp(2.25rem,7vw,5rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.025em]">
+          <h2 data-shine="" className="headline-metal mt-5 font-display text-[clamp(2.25rem,7vw,5rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.025em]">
             Material Science.
           </h2>
           <p className="mt-5 max-w-[680px] font-body text-base leading-[1.55] text-ink-2">
@@ -130,10 +130,18 @@ export function MaterialScience() {
 
         <Reveal delay={200} className="mt-14 flex flex-col items-center gap-7">
           <div className="grid w-full max-w-[820px] grid-cols-4 divide-x divide-line">
-            {STATS.map(([v, k]) => (
-              <div key={k} className="flex flex-col items-center gap-2 px-4">
-                <span className="font-display text-[clamp(1.75rem,4vw,2.4rem)] font-bold tracking-[-0.04em] text-ink">{v}</span>
-                <span className="font-mono text-[10px] tracking-[0.15em] text-ink-2">{k}</span>
+            {STATS.map((s) => (
+              <div key={s.k} className="flex flex-col items-center gap-2 px-4">
+                <span
+                  className="font-display text-[clamp(1.75rem,4vw,2.4rem)] font-bold tracking-[-0.04em] text-ink"
+                  data-count={s.n}
+                  data-prefix={s.prefix}
+                  data-suffix={s.suffix}
+                  data-decimals={s.decimals}
+                >
+                  {s.v}
+                </span>
+                <span className="font-mono text-[10px] tracking-[0.15em] text-ink-2">{s.k}</span>
               </div>
             ))}
           </div>

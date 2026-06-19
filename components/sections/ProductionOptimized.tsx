@@ -91,7 +91,7 @@ export function ProductionOptimized() {
               Module 02 / Automation
             </span>
           </div>
-          <h2 className="headline-metal mt-9 font-display text-[clamp(2.4rem,9vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.03em]">
+          <h2 data-shine="" className="headline-metal mt-9 font-display text-[clamp(2.4rem,9vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.03em]">
             Production, Optimized.
           </h2>
           <div className="mt-9 flex items-end justify-between">
