@@ -29,7 +29,7 @@ export default function ProductsPage() {
         sub="A growing catalog of B2B components and material stock — every line characterized, certified, and built to spec."
       />
 
-      <Section className="bg-surface">
+      <Section>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {PRODUCTS.map((p, i) => (
             <Reveal key={p.code} delay={(i % 3) * 80}>

@@ -28,7 +28,7 @@ export default function AboutPage() {
         sub="GEOMETRIX engineers and supplies high-performance components and materials for the world's most demanding industries — built in Sitiawan, Perak, shipped worldwide."
       />
 
-      <Section className="bg-surface">
+      <Section>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <Reveal className="relative h-72 overflow-hidden rounded-lg border border-line lg:h-[480px]">
             <Image src="/images/steel-flow.webp" alt="GEOMETRIX facility" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
@@ -51,7 +51,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section className="border-t border-line bg-surface" pad="tight">
+      <Section className="border-t border-line" pad="tight">
         <Reveal className="grid grid-cols-2 gap-y-10 sm:grid-cols-4 sm:divide-x sm:divide-line">
           {STATS.map((s) => (
             <div key={s.k} className="flex flex-col items-center gap-2 px-4 text-center">

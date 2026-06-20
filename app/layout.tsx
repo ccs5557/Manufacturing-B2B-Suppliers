@@ -6,6 +6,7 @@ import { SideNav } from "@/components/site/SideNav";
 import { MobileNav } from "@/components/site/MobileNav";
 import { Footer } from "@/components/site/Footer";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { AmbientBackground } from "@/components/site/AmbientBackground";
 
 // Synchronous, before-paint: enable motion whenever JS runs. Animations are
 // forced on (per product decision) — the gate is JS-only, so no-JS still shows
@@ -68,6 +69,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-surface text-ink">
         <script dangerouslySetInnerHTML={{ __html: MOTION_GATE }} />
+        <AmbientBackground />
         <MotionProvider />
         <MobileNav />
         <Brand />

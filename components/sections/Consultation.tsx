@@ -23,7 +23,7 @@ export function Consultation() {
   }
 
   return (
-    <Section id="consultation" className="bg-surface">
+    <Section id="consultation">
       {/* ── Mobile ── */}
       <div className="lg:hidden">
         <Reveal>

@@ -123,19 +123,17 @@ function Wordmark() {
         <div
           aria-hidden="true"
           className="wordmark-stroke select-none whitespace-nowrap font-display font-extrabold leading-[0.82] tracking-[-0.02em] text-[clamp(2.6rem,14vw,14rem)]"
+          style={{
+            WebkitMaskImage: "linear-gradient(to bottom, #000 44%, transparent 98%)",
+            maskImage: "linear-gradient(to bottom, #000 44%, transparent 98%)",
+          }}
         >
           GEOMETRIX
         </div>
-        {/* measurement ticks fading up from the baseline */}
+        {/* crisp divider line crossing the dissolving lower portion of the mark */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-3"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(90deg, rgba(58,58,64,0.7) 0 1px, transparent 1px 26px)",
-            WebkitMaskImage: "linear-gradient(to top, #000, transparent)",
-            maskImage: "linear-gradient(to top, #000, transparent)",
-          }}
+          className="pointer-events-none absolute inset-x-0 bottom-[16%] h-px bg-line-2"
         />
       </div>
     </div>
@@ -145,7 +143,7 @@ function Wordmark() {
 /** Global footer — appears on every page below content. */
 export function Footer() {
   return (
-    <footer className="overflow-hidden border-t border-line bg-surface px-5 pb-9 pt-12 lg:px-14 lg:pb-10 lg:pt-16">
+    <footer className="overflow-hidden border-t border-line px-5 pb-9 pt-12 lg:px-14 lg:pb-10 lg:pt-16">
       <div className="mx-auto max-w-[1440px]">
         {/* ── Top: tagline + columns ── */}
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-[1.7fr_1fr_1fr_1fr] lg:gap-x-10">
@@ -170,7 +168,7 @@ export function Footer() {
         <Wordmark />
 
         {/* ── Legal bar ── */}
-        <div className="mt-7 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono text-[11px] tracking-[0.06em] text-ink-3">
             © 2026 GEOMETRIX GLOBAL INNOVATION · Reject all substitutes
           </p>

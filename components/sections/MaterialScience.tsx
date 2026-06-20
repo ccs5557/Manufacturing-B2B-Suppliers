@@ -56,7 +56,7 @@ function Callout({ m, side, top }: { m: Material; side: "left" | "right"; top: n
 
 export function MaterialScience() {
   return (
-    <Section id="materials" className="bg-surface" pad="tight">
+    <Section id="materials" pad="tight">
       {/* ── Mobile ── */}
       <div className="lg:hidden">
         <Reveal>

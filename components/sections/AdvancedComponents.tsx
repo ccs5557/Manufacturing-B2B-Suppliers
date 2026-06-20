@@ -85,7 +85,7 @@ function SpecPanel() {
 
 export function AdvancedComponents() {
   return (
-    <Section id="components" className="bg-surface">
+    <Section id="components">
       {/* ── Mobile: capability cards ── */}
       <div className="lg:hidden">
         <Reveal>

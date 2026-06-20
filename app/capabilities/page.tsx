@@ -28,7 +28,7 @@ export default function CapabilitiesPage() {
         sub="From raw substrate to certified, production-ready parts — a vertically integrated precision-manufacturing stack."
       />
 
-      <Section className="bg-surface">
+      <Section>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {CAPS.map((c, i) => (
             <Reveal key={c.index} delay={(i % 3) * 80}>

@@ -64,7 +64,7 @@ function MobileProcessCard({ src, title, className = "" }: { src: string; title:
 
 export function ProductionOptimized() {
   return (
-    <Section id="production" className="bg-surface">
+    <Section id="production">
       {/* ── Mobile ── */}
       <div className="lg:hidden">
         <Reveal>

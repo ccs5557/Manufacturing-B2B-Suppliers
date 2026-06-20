@@ -27,7 +27,7 @@ export default function ContactPage() {
         sub="Share your specifications and our engineering team responds within one business day with a tailored supply proposal."
       />
 
-      <Section className="bg-surface" pad="tight">
+      <Section pad="tight">
         <Reveal className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {DETAILS.map(({ Icon, label, value, href }) => {
             const inner = (
