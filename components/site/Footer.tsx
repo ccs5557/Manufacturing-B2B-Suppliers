@@ -85,7 +85,7 @@ function Socials() {
 
 function HiringChip() {
   return (
-    <span className="ml-2 inline-flex items-center rounded-full border border-line-2 bg-panel px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.12em] text-ink-2">
+    <span className="ml-2 inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-line-2 bg-panel px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.12em] text-ink-2">
       We&apos;re hiring
     </span>
   );
@@ -124,8 +124,8 @@ function Wordmark() {
           aria-hidden="true"
           className="wordmark-stroke select-none whitespace-nowrap font-display font-extrabold leading-[0.82] tracking-[-0.02em] text-[clamp(2.6rem,14vw,14rem)]"
           style={{
-            WebkitMaskImage: "linear-gradient(to bottom, #000 44%, transparent 98%)",
-            maskImage: "linear-gradient(to bottom, #000 44%, transparent 98%)",
+            WebkitMaskImage: "linear-gradient(to bottom, #000 36%, transparent 70%)",
+            maskImage: "linear-gradient(to bottom, #000 36%, transparent 70%)",
           }}
         >
           GEOMETRIX
@@ -133,7 +133,7 @@ function Wordmark() {
         {/* crisp divider line crossing the dissolving lower portion of the mark */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-[16%] h-px bg-line-2"
+          className="pointer-events-none absolute inset-x-0 bottom-[30%] h-px bg-line-2"
         />
       </div>
     </div>
@@ -143,15 +143,22 @@ function Wordmark() {
 /** Global footer — appears on every page below content. */
 export function Footer() {
   return (
-    <footer className="overflow-hidden border-t border-line px-5 pb-9 pt-12 lg:px-14 lg:pb-10 lg:pt-16">
-      <div className="mx-auto max-w-[1440px]">
+    <footer className="relative overflow-hidden border-t border-line px-5 pb-9 pt-12 lg:px-14 lg:pb-10 lg:pt-16">
+      {/* Dark gradient over the lower strip: below the divider the legal area
+          stays clean — no ambient smoke or wordmark remnants showing through. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[195px] lg:h-[250px]"
+        style={{ background: "linear-gradient(to bottom, transparent, var(--color-surface) 70%)" }}
+      />
+      <div className="relative z-10 mx-auto max-w-[1440px]">
         {/* ── Top: tagline + columns ── */}
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-[1.7fr_1fr_1fr_1fr] lg:gap-x-10">
           <div className="col-span-2 flex flex-col gap-6 lg:col-span-1 lg:pr-8">
             <Link
               prefetch={false}
               href="/"
-              className="font-display text-xl font-bold tracking-[0.01em] text-ink"
+              className="brand-metal font-display text-xl font-bold tracking-[0.01em]"
             >
               GEOMETRIX.
             </Link>
@@ -168,11 +175,14 @@ export function Footer() {
         <Wordmark />
 
         {/* ── Legal bar ── */}
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+          style={{ marginTop: "calc(1.4rem - 3.4vw)" }}
+        >
           <p className="font-mono text-[11px] tracking-[0.06em] text-ink-3">
             © 2026 GEOMETRIX GLOBAL INNOVATION · Reject all substitutes
           </p>
-          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 sm:justify-start">
             {LEGAL.map((l) => (
               <Link
                 key={l.label}

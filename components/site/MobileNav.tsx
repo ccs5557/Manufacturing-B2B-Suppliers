@@ -33,7 +33,7 @@ export function MobileNav() {
           href="/"
           aria-label="GEOMETRIX home"
           onClick={() => setOpen(false)}
-          className="font-display text-lg font-bold tracking-[0.02em] text-ink"
+          className="brand-metal font-display text-lg font-bold tracking-[0.02em]"
           style={{ textShadow: "0 1px 6px rgba(0,0,0,0.65)" }}
         >
           GEOMETRIX.
@@ -43,7 +43,7 @@ export function MobileNav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="text-ink"
+          className="text-[#cfcdc7]"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -51,7 +51,7 @@ export function MobileNav() {
 
       {/* Full-screen menu */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col justify-center gap-2 bg-surface/97 px-6 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 flex flex-col justify-center gap-2 bg-surface/97 px-6 backdrop-blur-sm transition-opacity duration-[450ms] ease-out ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -63,10 +63,10 @@ export function MobileNav() {
               prefetch={false}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={`border-b border-line py-4 font-display text-3xl font-bold tracking-[-0.01em] transition-colors ${
+              className={`border-b border-line py-4 font-display text-3xl font-bold tracking-[-0.01em] transition-all duration-[450ms] ease-out ${
                 active ? "text-metal" : "text-ink"
-              }`}
-              style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
+              } ${open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
+              style={{ transitionDelay: open ? `${90 + i * 60}ms` : "0ms" }}
             >
               {item.label}
             </Link>

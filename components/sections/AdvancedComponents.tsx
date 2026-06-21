@@ -89,7 +89,7 @@ export function AdvancedComponents() {
       {/* ── Mobile: capability cards ── */}
       <div className="lg:hidden">
         <Reveal>
-          <p className="eyebrow">Advanced Capabilities</p>
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-2">Advanced Capabilities</p>
         </Reveal>
         <div className="mt-6 flex flex-col gap-4">
           {CAPS.map((c) => (

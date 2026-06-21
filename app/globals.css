@@ -101,7 +101,32 @@
   /* Giant outline wordmark — engineering-blueprint stroke, transparent fill */
   .wordmark-stroke {
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(245, 245, 244, 0.15);
+    /* em so the stroke scales with the responsive font size — same relative
+       thickness on desktop and mobile (a fixed px looks thicker on small text). */
+    -webkit-text-stroke: 0.01em rgba(238, 238, 242, 0.22);
+  }
+
+  /* Brushed-silver brand wordmark (logo) — unified with the metallic headlines.
+     Falls back to solid ink. */
+  .brand-metal {
+    color: var(--color-ink);
+  }
+
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    .brand-metal {
+      background-image: linear-gradient(
+        165deg,
+        #fdfdfc 0%,
+        #e4e2dd 28%,
+        #b6b4ae 54%,
+        #8c8a84 74%,
+        #d2d0ca 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
   }
 
   /* Brushed-steel sheen for big display headlines.
