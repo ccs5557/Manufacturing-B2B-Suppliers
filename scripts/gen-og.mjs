@@ -140,9 +140,12 @@ async function compose() {
     },
   });
   const png = resvg.render().asPng();
-  writeFileSync(path.join(ROOT, "app", "opengraph-image.png"), png);
-  writeFileSync(path.join(ROOT, "app", "twitter-image.png"), png);
-  console.log(`og: wrote app/opengraph-image.png + app/twitter-image.png (${(png.length / 1024).toFixed(0)}KB)`);
+  // Encode to JPG — a ~40KB photographic card loads everywhere (incl. WhatsApp,
+  // which silently drops large OG images); PNG of this came out ~600KB.
+  const jpg = await sharp(png).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+  writeFileSync(path.join(ROOT, "app", "opengraph-image.jpg"), jpg);
+  writeFileSync(path.join(ROOT, "app", "twitter-image.jpg"), jpg);
+  console.log(`og: wrote app/opengraph-image.jpg + app/twitter-image.jpg (${(jpg.length / 1024).toFixed(0)}KB)`);
 }
 
 await ensureBackground();
