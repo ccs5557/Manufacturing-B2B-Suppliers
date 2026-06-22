@@ -24,7 +24,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Careers", href: "/contact", chip: "WE'RE HIRING" },
+      { label: "Careers", href: "/careers", chip: "WE'RE HIRING" },
     ],
   },
 ];
@@ -54,9 +54,8 @@ const SOCIAL = [
 ];
 
 const LEGAL: FooterLink[] = [
-  { label: "Security", href: "/" },
-  { label: "Terms of Service", href: "/" },
-  { label: "Privacy Policy", href: "/" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
 ];
 
 const TAGLINE =
@@ -117,7 +116,7 @@ function LinkColumn({ title, links }: { title: string; links: FooterLink[] }) {
  *  hairline with measurement ticks. The signature element of the footer. */
 function Wordmark() {
   return (
-    <div className="relative mt-14 overflow-hidden lg:mt-20">
+    <div className="pointer-events-none relative mt-14 overflow-hidden lg:mt-20">
       <span className="font-mono text-[10px] tracking-[0.2em] text-ink-3">FIG. 01 — IDENTITY MARK</span>
       <div className="relative mt-2">
         <div

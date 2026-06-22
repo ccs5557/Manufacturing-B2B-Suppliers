@@ -138,6 +138,21 @@ export function MotionProvider() {
             }),
         });
 
+        // 6b) Inspection-record hairlines — "measure in" (scaleX 0→1) on enter,
+        // staggered so a column of dividers draws like a gauge sweeping across.
+        ScrollTrigger.batch("[data-measure]", {
+          start: "top 90%",
+          once: true,
+          onEnter: (els) =>
+            gsap.to(els, {
+              scaleX: 1,
+              duration: 0.9,
+              ease: "power3.inOut",
+              stagger: 0.08,
+              overwrite: true,
+            }),
+        });
+
         // 6) Subtle parallax
         gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
           const d = parseFloat(el.dataset.parallax || "16");

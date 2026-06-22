@@ -98,6 +98,23 @@
     text-orientation: mixed;
   }
 
+  /* Faint blueprint/graph-paper grid — drawing-board texture for the About
+     "engineering dossier" sections. Sits over the ambient flow, under content. */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(to right, rgba(245, 245, 244, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 245, 244, 0.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Hairline that "measures in" (scaleX 0→1) when revealed — used for the
+     inspection-record dividers. Gated by .motion so no-JS shows them solid. */
+  .motion [data-measure] {
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
+  }
+
   /* Giant outline wordmark — engineering-blueprint stroke, transparent fill */
   .wordmark-stroke {
     color: transparent;

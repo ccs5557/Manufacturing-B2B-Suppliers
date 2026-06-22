@@ -50,3 +50,6 @@ next-env.d.ts
 .open-next/
 .wrangler/
 .dev.vars
+
+# scratch — icon/OG render previews + cached gpt bg (do not commit)
+.tmp-icons/

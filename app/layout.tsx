@@ -31,8 +31,14 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+// Canonical origin used for absolute OG/Twitter image + canonical URLs. Must be
+// the domain the site is actually served from, or social scrapers fetch the OG
+// image from a domain that doesn't host it. Switch to https://geometrix.io once
+// that custom domain is connected to this Worker.
+const SITE_URL = "https://manufacturingb2b.chenchangsoon.workers.dev";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://geometrix.io"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "GEOMETRIX — Precision Engineered Components & Materials",
     template: "%s — GEOMETRIX",
@@ -52,6 +58,14 @@ export const metadata: Metadata = {
       "Premium B2B supply of engineered components and high-performance materials. Built in Sitiawan, Perak — trusted worldwide.",
     type: "website",
     locale: "en_US",
+    siteName: "GEOMETRIX",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GEOMETRIX — Precision Engineered Components & Materials",
+    description:
+      "Premium B2B supply of engineered components and high-performance materials. ISO 9001 / AS9100D / NADCAP certified.",
   },
 };
 

@@ -34,7 +34,7 @@ void main(){
   // side so cloud density is consistent in any aspect ratio.
   vec2 frag = vec2(gl_FragCoord.x, u_scroll + (u_res.y - gl_FragCoord.y));
   vec2 p = frag / m * 3.0;
-  float t = u_time * 0.03;
+  float t = u_time * 0.045;
   float n = fbm(p + vec2(t, t * 0.6) + fbm(p - t) * 0.6);
   vec3 base  = vec3(0.039, 0.039, 0.043);   // surface #0a0a0b
   vec3 steel = vec3(0.26, 0.265, 0.295);

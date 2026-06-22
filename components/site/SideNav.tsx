@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search } from "lucide-react";
 import { SIDE_NAV } from "./nav";
 
 /** Desktop vertical side-nav pinned to the right edge, reading bottom-to-top. */
@@ -21,7 +20,7 @@ export function SideNav() {
             key={item.label}
             prefetch={false}
             href={item.href}
-            className={`font-mono text-[11px] tracking-[0.2em] transition-colors duration-300 [writing-mode:vertical-rl] rotate-180 hover:text-ink ${
+            className={`font-mono text-[11px] tracking-[0.2em] transition-colors duration-300 [writing-mode:vertical-rl] hover:text-ink ${
               active ? "text-metal" : "text-[#cfcfcb]"
             }`}
           >
@@ -29,13 +28,6 @@ export function SideNav() {
           </Link>
         );
       })}
-      <button
-        type="button"
-        aria-label="Search"
-        className="text-[#cfcfcb] transition-colors duration-300 hover:text-ink"
-      >
-        <Search className="h-[15px] w-[15px]" strokeWidth={1.5} />
-      </button>
     </nav>
   );
 }
